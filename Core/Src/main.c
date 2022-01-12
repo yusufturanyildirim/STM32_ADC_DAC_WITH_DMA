@@ -64,7 +64,6 @@ static void MX_DAC_Init(void);
 /* USER CODE BEGIN 0 */
 uint8_t ButtonCount = 0 ;
 uint8_t AdcValue8Bits ;
-uint8_t DacValue8Bits ;
 
 /*__weak void HAL_ADC_ConvHalfCpltCallback(ADC_HandleTypeDef* hadc) */
 
@@ -104,7 +103,7 @@ int main(void)
   MX_DAC_Init();
   /* USER CODE BEGIN 2 */
   HAL_ADC_Start_DMA(&hadc1, (uint32_t *)&AdcValue8Bits, 1);
-  HAL_DAC_Start_DMA(&hdac, DAC_CHANNEL_1, (uint32_t *)&DacValue8Bits, 1, DAC_ALIGN_8B_R);
+  HAL_DAC_Start_DMA(&hdac, DAC_CHANNEL_1, (uint32_t *)&AdcValue8Bits, 1, DAC_ALIGN_8B_R);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -121,7 +120,7 @@ int main(void)
 		  ButtonCount++ ;
 	  }
 	  DacValue8Bits = AdcValue8Bits ;
-	  HAL_DAC_SetValue(&hdac, DAC1_CHANNEL_1, DAC_ALIGN_8B_R, DacValue8Bits);
+	  HAL_DAC_SetValue(&hdac, DAC1_CHANNEL_1, DAC_ALIGN_8B_R, AdcValue8Bits);
   }
   /* USER CODE END 3 */
 }
