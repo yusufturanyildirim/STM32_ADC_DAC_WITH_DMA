@@ -67,6 +67,16 @@ uint8_t AdcValue8Bits ;
 
 /*__weak void HAL_ADC_ConvHalfCpltCallback(ADC_HandleTypeDef* hadc) */
 
+/**
+  * ADC and DAC - DMA SETTINGS
+  * DMA REQUEST SETTINGS :
+  * MODE -> CIRCULAR MODE
+  * DATA WIDTH   -> BYTE 
+  * BYTE         -> 8-BIT
+  * HALF WORD    -> 16-BIT
+  * WORD         -> 32-BIT
+  * DOUBLE WORD  -> 64-BIT
+  */
 
 /* USER CODE END 0 */
 
